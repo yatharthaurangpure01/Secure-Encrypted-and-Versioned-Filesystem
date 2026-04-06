@@ -32,6 +32,8 @@ A custom FUSE-based filesystem written in C that provides **transparent AES-256-
 
 ---
 
+
+
 ## Features
 
 | Feature | Description |
