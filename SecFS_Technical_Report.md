@@ -2,6 +2,8 @@
 
 This document serves as the comprehensive technical report for the **SecFS (Secure Encrypted and Versioned Filesystem)** project. It details the system architecture, cryptographic design calculations, storage impact analyses, and operational workflows.
 
+**Source Code Repository:** [Secure-Encrypted-and-Versioned-Filesystem](https://github.com/yatharthaurangpure01/Secure-Encrypted-and-Versioned-Filesystem)
+
 ---
 
 ## 1. Project Overview
