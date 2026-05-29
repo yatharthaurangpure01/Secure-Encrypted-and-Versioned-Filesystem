@@ -58,6 +58,10 @@
 #include "encryption.h"
 #include "logging.h"
 #include "versioning.h"
+#include <stdlib.h>
+
+char g_abs_storage_dir[MAX_PATH_LEN];
+char g_abs_versions_dir[MAX_PATH_LEN];
 
 /*
  * initialize_subsystems - Start all SecFS modules
@@ -85,8 +89,18 @@ static int initialize_subsystems(void)
         fprintf(stderr, "ERROR: Failed to create versions directory\n");
         return -1;
     }
-    printf("    ✓ Storage directory: %s\n", STORAGE_DIR);
-    printf("    ✓ Versions directory: %s\n", VERSIONS_DIR);
+
+    if (realpath(STORAGE_DIR, g_abs_storage_dir) == NULL) {
+        fprintf(stderr, "ERROR: Failed to resolve absolute storage path\n");
+        return -1;
+    }
+    if (realpath(VERSIONS_DIR, g_abs_versions_dir) == NULL) {
+        fprintf(stderr, "ERROR: Failed to resolve absolute versions path\n");
+        return -1;
+    }
+
+    printf("    ✓ Storage directory: %s\n", g_abs_storage_dir);
+    printf("    ✓ Versions directory: %s\n", g_abs_versions_dir);
 
     /* Step 2: Initialize encryption with PBKDF2 key derivation */
     printf("[*] Initializing encryption (AES-256-CBC + PBKDF2)...\n");

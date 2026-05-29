@@ -35,7 +35,7 @@ NC='\033[0m'  # No Color
 
 # Configuration
 BINARY="./secfs"
-MOUNT_DIR="./mountpoint"
+MOUNT_DIR="/tmp/secfs_mountpoint"
 STORAGE_DIR="./storage"
 VERSIONS_DIR="./storage/.versions"
 LOG_FILE="./logs.txt"
@@ -114,7 +114,7 @@ echo -e "  ✓ Previous test data cleaned"
 # ============================================================
 
 echo -e "\n${CYAN}[*] Mounting SecFS...${NC}"
-$BINARY -f "$MOUNT_DIR" &
+$BINARY -f -d "$MOUNT_DIR" > fuse_debug.log 2>&1 &
 SECFS_PID=$!
 sleep 2  # Wait for mount to complete
 
@@ -137,6 +137,7 @@ if [ -f "$MOUNT_DIR/hello.txt" ]; then
     pass "File created successfully"
 else
     fail "File was not created"
+    cat fuse_debug.log
 fi
 
 # ============================================================

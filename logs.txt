@@ -1,0 +1,45 @@
+[2026-04-10 15:51:01] MOUNT      /
+[2026-04-10 15:51:03] CREATE     /hello.txt
+[2026-04-10 15:51:03] WRITE      /hello.txt
+[2026-04-10 15:51:03] OPEN       /hello.txt
+[2026-04-10 15:51:03] READ       /hello.txt
+[2026-04-10 15:51:03] VERSION    /hello.txt (v5)
+[2026-04-10 15:51:03] TRUNCATE   /hello.txt
+[2026-04-10 15:51:03] OPEN       /hello.txt
+[2026-04-10 15:51:03] WRITE      /hello.txt
+[2026-04-10 15:51:04] VERSION    /hello.txt (v6)
+[2026-04-10 15:51:04] TRUNCATE   /hello.txt
+[2026-04-10 15:51:04] OPEN       /hello.txt
+[2026-04-10 15:51:04] WRITE      /hello.txt
+[2026-04-10 15:51:05] OPEN       /hello.txt
+[2026-04-10 15:51:05] READ       /hello.txt
+[2026-04-10 15:51:05] CREATE     /file_a.txt
+[2026-04-10 15:51:05] WRITE      /file_a.txt
+[2026-04-10 15:51:05] CREATE     /file_b.txt
+[2026-04-10 15:51:05] WRITE      /file_b.txt
+[2026-04-10 15:51:05] CREATE     /file_c.txt
+[2026-04-10 15:51:05] WRITE      /file_c.txt
+[2026-04-10 15:51:05] READDIR    /
+[2026-04-10 15:51:05] MKDIR      /subdir
+[2026-04-10 15:51:05] CREATE     /subdir/nested.txt
+[2026-04-10 15:51:05] WRITE      /subdir/nested.txt
+[2026-04-10 15:51:05] OPEN       /subdir/nested.txt
+[2026-04-10 15:51:05] READ       /subdir/nested.txt
+[2026-04-10 15:51:05] RENAME     /file_a.txt -> /file_a_renamed.txt
+[2026-04-10 15:51:05] OPEN       /file_a_renamed.txt
+[2026-04-10 15:51:05] READ       /file_a_renamed.txt
+[2026-04-10 15:51:05] DELETE     /file_b.txt
+[2026-04-10 15:51:05] READDIR    /
+[2026-04-10 15:51:05] CREATE     /large_file.txt
+[2026-04-10 15:51:05] WRITE      /large_file.txt
+[2026-04-10 15:51:05] VERSION    /large_file.txt (v9)
+[2026-04-10 15:51:05] WRITE      /large_file.txt
+[2026-04-10 15:51:05] VERSION    /large_file.txt (v10)
+[2026-04-10 15:51:05] WRITE      /large_file.txt
+[2026-04-10 15:51:05] VERSION    /large_file.txt (v11)
+[2026-04-10 15:51:05] WRITE      /large_file.txt
+[2026-04-10 15:51:05] VERSION    /large_file.txt (v12)
+[2026-04-10 15:51:05] WRITE      /large_file.txt
+[2026-04-10 15:51:05] OPEN       /large_file.txt
+[2026-04-10 15:51:05] READ       /large_file.txt
+[2026-04-10 15:51:05] UNMOUNT    /

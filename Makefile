@@ -21,7 +21,7 @@
 
 # Compiler and flags
 CC       = gcc
-CFLAGS   = -Wall -Wextra -Werror -std=c11 -g
+CFLAGS   = -Wall -Wextra -Werror -std=gnu11 -g
 CFLAGS  += $(shell pkg-config fuse3 --cflags)
 LDFLAGS  = $(shell pkg-config fuse3 --libs) -lcrypto -lpthread
 
@@ -37,7 +37,7 @@ SOURCES  = $(SRC_DIR)/main.c \
 TARGET   = secfs
 
 # Directories
-MOUNT_DIR   = mountpoint
+MOUNT_DIR   = /tmp/secfs_mountpoint
 STORAGE_DIR = storage
 VERSIONS_DIR = $(STORAGE_DIR)/.versions
 

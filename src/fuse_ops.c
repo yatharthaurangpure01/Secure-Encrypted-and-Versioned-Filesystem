@@ -198,8 +198,6 @@ int secfs_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
  */
 int secfs_open(const char *path, struct fuse_file_info *fi)
 {
-    (void)fi;
-
     char real_path[MAX_PATH_LEN];
     if (get_real_path(real_path, path, sizeof(real_path)) != 0) {
         return -ENAMETOOLONG;
@@ -211,6 +209,15 @@ int secfs_open(const char *path, struct fuse_file_info *fi)
     int res = access(real_path, F_OK);
     if (res == -1) {
         return -errno;
+    }
+    
+    /* Handle O_TRUNC flag directly if passed by the kernel */
+    if ((fi->flags & O_TRUNC) != 0) {
+        SECFS_DEBUG("open: O_TRUNC flag detected, truncating file");
+        int trunc_res = secfs_truncate(path, 0, fi);
+        if (trunc_res != 0) {
+            return trunc_res;
+        }
     }
 
     log_operation("OPEN", path);

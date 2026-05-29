@@ -38,7 +38,7 @@ int versioning_init(void)
         return -1;
     }
 
-    SECFS_DEBUG("Versioning initialized, versions stored in '%s'", VERSIONS_DIR);
+    SECFS_DEBUG("Versioning initialized, versions stored in '%s'", g_abs_versions_dir);
     return 0;
 }
 
@@ -48,7 +48,7 @@ int get_next_version_number(const char *basename)
     struct dirent *entry;
     int max_version = 0;
 
-    dir = opendir(VERSIONS_DIR);
+    dir = opendir(g_abs_versions_dir);
     if (!dir) {
         SECFS_DEBUG("Cannot open versions directory, starting at v1");
         return 1;
@@ -122,7 +122,7 @@ int create_version_backup(const char *real_path, const char *virt_path)
      *   ./storage/hello.txt       -> basename: hello.txt
      *   ./storage/docs/report.txt -> basename: docs__report.txt
      */
-    const char *rel_path = real_path + strlen(STORAGE_DIR);
+    const char *rel_path = real_path + strlen(g_abs_storage_dir);
     if (*rel_path == '/') rel_path++;  /* Skip leading slash */
 
     /* Create a flattened version of the relative path */
@@ -151,9 +151,9 @@ int create_version_backup(const char *real_path, const char *virt_path)
     int version = get_next_version_number(flat_name);
 
     /* Build the version file path */
-    char version_path[MAX_PATH_LEN];
+    char version_path[MAX_PATH_LEN * 2 + 256];
     snprintf(version_path, sizeof(version_path), "%s/%s.v%d",
-             VERSIONS_DIR, flat_name, version);
+             g_abs_versions_dir, flat_name, version);
 
     SECFS_DEBUG("Creating version backup: %s -> %s", real_path, version_path);
 

@@ -53,10 +53,13 @@
  * Utility Functions
  * ============================================================ */
 
+extern char g_abs_storage_dir[MAX_PATH_LEN];
+extern char g_abs_versions_dir[MAX_PATH_LEN];
+
 /*
  * get_real_path - Translate a virtual FUSE path to a real storage path
  * 
- * Maps virtual path "/foo/bar.txt" to "storage/foo/bar.txt"
+ * Maps virtual path "/foo/bar.txt" to "/absolute/path/to/storage/foo/bar.txt"
  * 
  * Parameters:
  *   real_path   - Output buffer for the translated path
@@ -68,7 +71,14 @@
  */
 static inline int get_real_path(char *real_path, const char *path, size_t buf_size)
 {
-    int ret = snprintf(real_path, buf_size, "%s%s", STORAGE_DIR, path);
+    int ret;
+    /* Strip trailing slash for root path to avoid stat() issues */
+    if (strcmp(path, "/") == 0) {
+        ret = snprintf(real_path, buf_size, "%s", g_abs_storage_dir);
+    } else {
+        ret = snprintf(real_path, buf_size, "%s%s", g_abs_storage_dir, path);
+    }
+    
     if (ret < 0 || (size_t)ret >= buf_size) {
         SECFS_ERROR("Path too long: %s", path);
         return -1;

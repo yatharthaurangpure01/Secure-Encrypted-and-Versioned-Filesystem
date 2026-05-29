@@ -1,0 +1,307 @@
+╔══════════════════════════════════════════════════════╗
+║          SecFS - Secure Encrypted Filesystem        ║
+║     Encrypted • Versioned • Logged • FUSE-based     ║
+╚══════════════════════════════════════════════════════╝
+
+[*] Creating directories...
+    ✓ Storage directory: /mnt/d/Web page  development/Projects/FUSE-based filesystem/storage
+    ✓ Versions directory: /mnt/d/Web page  development/Projects/FUSE-based filesystem/storage/.versions
+[*] Initializing encryption (AES-256-CBC + PBKDF2)...
+    ✓ Key derived from passphrase using PBKDF2-HMAC-SHA256
+    ✓ Iterations: 10000
+[*] Initializing logging...
+    ✓ Log file: ./logs.txt
+[*] Initializing versioning...
+    ✓ Automatic file versioning enabled
+
+[✓] All subsystems initialized successfully!
+[*] MountinFUSE library version: 3.14.0
+nullpath_ok: 0
+Ignoring invalid max threads value 4294967295 > max (100000).
+unique: 2, opcode: INIT (26), nodeid: 0, insize: 104, pid: 0
+INIT: 7.39
+flags=0x73fffffb
+max_readahead=0x00020000
+   INIT: 7.31
+   flags=0x4040f039
+   max_readahead=0x00020000
+   max_write=0x00100000
+   max_background=0
+   congestion_threshold=0
+   time_gran=1
+   unique: 2, success, outsize: 80
+unique: 4, opcode: GETATTR (3), nodeid: 1, insize: 56, pid: 617
+getattr[NULL] /
+   unique: 4, success, outsize: 120
+unique: 6, opcode: LOOKUP (1), nodeid: 1, insize: 50, pid: 606
+LOOKUP /hello.txt
+getattr[NULL] /hello.txt
+   unique: 6, error: -2 (No such file or directory), outsize: 16
+unique: 8, opcode: CREATE (35), nodeid: 1, insize: 66, pid: 606
+create flags: 0x8241 /hello.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /hello.txt
+getattr[0] /hello.txt
+   NODEID: 2
+   unique: 8, success, outsize: 160
+unique: 10, opcode: FLUSH (25), nodeid: 2, insize: 64, pid: 606
+   unique: 10, error: -38 (Function not implemented), outsize: 16
+unique: 12, opcode: GETXATTR (22), nodeid: 2, insize: 68, pid: 606
+   unique: 12, error: -38 (Function not implemented), outsize: 16
+unique: 14, opcode: WRITE (16), nodeid: 2, insize: 115, pid: 606
+write[0] 35 bytes to 0 flags: 0x8001
+   write[0] 35 bytes to 0
+   unique: 14, success, outsize: 24
+unique: 16, opcode: RELEASE (18), nodeid: 2, insize: 64, pid: 0
+   unique: 16, success, outsize: 16
+unique: 18, opcode: GETATTR (3), nodeid: 2, insize: 56, pid: 606
+getattr[NULL] /hello.txt
+   unique: 18, success, outsize: 120
+unique: 20, opcode: OPEN (14), nodeid: 2, insize: 48, pid: 619
+open flags: 0x8000 /hello.txt
+   open[0] flags: 0x8000 /hello.txt
+   unique: 20, success, outsize: 32
+unique: 22, opcode: READ (15), nodeid: 2, insize: 80, pid: 619
+read[0] 4096 bytes from 0 flags: 0x8000
+   read[0] 35 bytes from 0
+   unique: 22, success, outsize: 51
+unique: 24, opcode: RELEASE (18), nodeid: 2, insize: 64, pid: 0
+   unique: 24, success, outsize: 16
+unique: 26, opcode: OPEN (14), nodeid: 2, insize: 48, pid: 606
+open flags: 0x8201 /hello.txt
+   open[0] flags: 0x8201 /hello.txt
+   unique: 26, success, outsize: 32
+unique: 28, opcode: WRITE (16), nodeid: 2, insize: 109, pid: 606
+write[0] 29 bytes to 0 flags: 0x8001
+   write[0] 29 bytes to 0
+   unique: 28, success, outsize: 24
+unique: 30, opcode: RELEASE (18), nodeid: 2, insize: 64, pid: 0
+   unique: 30, success, outsize: 16
+unique: 32, opcode: LOOKUP (1), nodeid: 1, insize: 50, pid: 606
+LOOKUP /hello.txt
+getattr[NULL] /hello.txt
+   NODEID: 2
+   unique: 32, success, outsize: 144
+unique: 34, opcode: OPEN (14), nodeid: 2, insize: 48, pid: 606
+open flags: 0x8201 /hello.txt
+   open[0] flags: 0x8201 /hello.txt
+   unique: 34, success, outsize: 32
+unique: 36, opcode: WRITE (16), nodeid: 2, insize: 107, pid: 606
+write[0] 27 bytes to 0 flags: 0x8001
+   write[0] 27 bytes to 0
+   unique: 36, success, outsize: 24
+unique: 38, opcode: RELEASE (18), nodeid: 2, insize: 64, pid: 0
+   unique: 38, success, outsize: 16
+unique: 40, opcode: LOOKUP (1), nodeid: 1, insize: 50, pid: 630
+LOOKUP /hello.txt
+getattr[NULL] /hello.txt
+   NODEID: 2
+   unique: 40, success, outsize: 144
+unique: 42, opcode: OPEN (14), nodeid: 2, insize: 48, pid: 630
+open flags: 0x8000 /hello.txt
+   open[0] flags: 0x8000 /hello.txt
+   unique: 42, success, outsize: 32
+unique: 44, opcode: READ (15), nodeid: 2, insize: 80, pid: 630
+read[0] 4096 bytes from 0 flags: 0x8000
+   read[0] 27 bytes from 0
+   unique: 44, success, outsize: 43
+unique: 46, opcode: RELEASE (18), nodeid: 2, insize: 64, pid: 0
+   unique: 46, success, outsize: 16
+unique: 48, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 606
+LOOKUP /file_a.txt
+getattr[NULL] /file_a.txt
+   unique: 48, error: -2 (No such file or directory), outsize: 16
+unique: 50, opcode: CREATE (35), nodeid: 1, insize: 67, pid: 606
+create flags: 0x8241 /file_a.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /file_a.txt
+getattr[0] /file_a.txt
+   NODEID: 3
+   unique: 50, success, outsize: 160
+unique: 52, opcode: WRITE (16), nodeid: 3, insize: 95, pid: 606
+write[0] 15 bytes to 0 flags: 0x8001
+   write[0] 15 bytes to 0
+   unique: 52, success, outsize: 24
+unique: 54, opcode: RELEASE (18), nodeid: 3, insize: 64, pid: 0
+   unique: 54, success, outsize: 16
+unique: 56, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 606
+LOOKUP /file_b.txt
+getattr[NULL] /file_b.txt
+   unique: 56, error: -2 (No such file or directory), outsize: 16
+unique: 58, opcode: CREATE (35), nodeid: 1, insize: 67, pid: 606
+create flags: 0x8241 /file_b.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /file_b.txt
+getattr[0] /file_b.txt
+   NODEID: 4
+   unique: 58, success, outsize: 160
+unique: 60, opcode: WRITE (16), nodeid: 4, insize: 95, pid: 606
+write[0] 15 bytes to 0 flags: 0x8001
+   write[0] 15 bytes to 0
+   unique: 60, success, outsize: 24
+unique: 62, opcode: RELEASE (18), nodeid: 4, insize: 64, pid: 0
+   unique: 62, success, outsize: 16
+unique: 64, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 606
+LOOKUP /file_c.txt
+getattr[NULL] /file_c.txt
+   unique: 64, error: -2 (No such file or directory), outsize: 16
+unique: 66, opcode: CREATE (35), nodeid: 1, insize: 67, pid: 606
+create flags: 0x8241 /file_c.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /file_c.txt
+getattr[0] /file_c.txt
+   NODEID: 5
+   unique: 66, success, outsize: 160
+unique: 68, opcode: WRITE (16), nodeid: 5, insize: 95, pid: 606
+write[0] 15 bytes to 0 flags: 0x8001
+   write[0] 15 bytes to 0
+   unique: 68, success, outsize: 24
+unique: 70, opcode: RELEASE (18), nodeid: 5, insize: 64, pid: 0
+   unique: 70, success, outsize: 16
+unique: 72, opcode: GETATTR (3), nodeid: 1, insize: 56, pid: 632
+getattr[NULL] /
+   unique: 72, success, outsize: 120
+unique: 74, opcode: OPENDIR (27), nodeid: 1, insize: 48, pid: 632
+   unique: 74, success, outsize: 32
+unique: 76, opcode: READDIRPLUS (44), nodeid: 1, insize: 80, pid: 632
+readdirplus[0] from 0
+   unique: 76, success, outsize: 1008
+unique: 78, opcode: READDIR (28), nodeid: 1, insize: 80, pid: 632
+   unique: 78, success, outsize: 16
+unique: 80, opcode: RELEASEDIR (29), nodeid: 1, insize: 64, pid: 0
+   unique: 80, success, outsize: 16
+unique: 82, opcode: LOOKUP (1), nodeid: 1, insize: 47, pid: 634
+LOOKUP /subdir
+getattr[NULL] /subdir
+   unique: 82, error: -2 (No such file or directory), outsize: 16
+unique: 84, opcode: MKDIR (9), nodeid: 1, insize: 55, pid: 634
+mkdir /subdir 0755 umask=0022
+getattr[NULL] /subdir
+   NODEID: 6
+   unique: 84, success, outsize: 144
+unique: 86, opcode: LOOKUP (1), nodeid: 6, insize: 51, pid: 606
+LOOKUP /subdir/nested.txt
+getattr[NULL] /subdir/nested.txt
+   unique: 86, error: -2 (No such file or directory), outsize: 16
+unique: 88, opcode: CREATE (35), nodeid: 6, insize: 67, pid: 606
+create flags: 0x8241 /subdir/nested.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /subdir/nested.txt
+getattr[0] /subdir/nested.txt
+   NODEID: 7
+   unique: 88, success, outsize: 160
+unique: 90, opcode: WRITE (16), nodeid: 7, insize: 100, pid: 606
+write[0] 20 bytes to 0 flags: 0x8001
+   write[0] 20 bytes to 0
+   unique: 90, success, outsize: 24
+unique: 92, opcode: RELEASE (18), nodeid: 7, insize: 64, pid: 0
+   unique: 92, success, outsize: 16
+unique: 94, opcode: OPEN (14), nodeid: 7, insize: 48, pid: 635
+open flags: 0x8000 /subdir/nested.txt
+   open[0] flags: 0x8000 /subdir/nested.txt
+   unique: 94, success, outsize: 32
+unique: 96, opcode: GETATTR (3), nodeid: 7, insize: 56, pid: 635
+getattr[NULL] /subdir/nested.txt
+   unique: 96, success, outsize: 120
+unique: 98, opcode: READ (15), nodeid: 7, insize: 80, pid: 635
+read[0] 4096 bytes from 0 flags: 0x8000
+   read[0] 20 bytes from 0
+   unique: 98, success, outsize: 36
+unique: 100, opcode: RELEASE (18), nodeid: 7, insize: 64, pid: 0
+   unique: 100, success, outsize: 16
+unique: 102, opcode: LOOKUP (1), nodeid: 1, insize: 59, pid: 636
+LOOKUP /file_a_renamed.txt
+getattr[NULL] /file_a_renamed.txt
+   unique: 102, error: -2 (No such file or directory), outsize: 16
+unique: 104, opcode: RENAME2 (45), nodeid: 1, insize: 86, pid: 636
+rename /file_a.txt /file_a_renamed.txt 0x1
+   unique: 104, success, outsize: 16
+unique: 106, opcode: GETATTR (3), nodeid: 3, insize: 56, pid: 606
+getattr[NULL] /file_a_renamed.txt
+   unique: 106, success, outsize: 120
+unique: 108, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 606
+LOOKUP /file_a.txt
+getattr[NULL] /file_a.txt
+   unique: 108, error: -2 (No such file or directory), outsize: 16
+unique: 110, opcode: OPEN (14), nodeid: 3, insize: 48, pid: 637
+open flags: 0x8000 /file_a_renamed.txt
+   open[0] flags: 0x8000 /file_a_renamed.txt
+   unique: 110, success, outsize: 32
+unique: 112, opcode: READ (15), nodeid: 3, insize: 80, pid: 637
+read[0] 4096 bytes from 0 flags: 0x8000
+   read[0] 15 bytes from 0
+   unique: 112, success, outsize: 31
+unique: 114, opcode: RELEASE (18), nodeid: 3, insize: 64, pid: 0
+   unique: 114, success, outsize: 16
+unique: 116, opcode: GETATTR (3), nodeid: 4, insize: 56, pid: 638
+getattr[NULL] /file_b.txt
+   unique: 116, success, outsize: 120
+unique: 118, opcode: ACCESS (34), nodeid: 4, insize: 48, pid: 638
+   unique: 118, error: -38 (Function not implemented), outsize: 16
+unique: 120, opcode: UNLINK (10), nodeid: 1, insize: 51, pid: 638
+unlink /file_b.txt
+   unique: 120, success, outsize: 16
+unique: 122, opcode: FORGET (2), nodeid: 4, insize: 48, pid: 0
+FORGET 4/1
+DELETE: 4
+unique: 124, opcode: LOOKUP (1), nodeid: 1, insize: 51, pid: 606
+LOOKUP /file_b.txt
+getattr[NULL] /file_b.txt
+   unique: 124, error: -2 (No such file or directory), outsize: 16
+unique: 126, opcode: GETATTR (3), nodeid: 1, insize: 56, pid: 639
+getattr[NULL] /
+   unique: 126, success, outsize: 120
+unique: 128, opcode: OPENDIR (27), nodeid: 1, insize: 48, pid: 639
+   unique: 128, success, outsize: 32
+unique: 130, opcode: READDIRPLUS (44), nodeid: 1, insize: 80, pid: 639
+readdirplus[0] from 0
+   unique: 130, success, outsize: 1008
+unique: 132, opcode: READDIR (28), nodeid: 1, insize: 80, pid: 639
+   unique: 132, success, outsize: 16
+unique: 134, opcode: RELEASEDIR (29), nodeid: 1, insize: 64, pid: 0
+   unique: 134, success, outsize: 16
+unique: 136, opcode: LOOKUP (1), nodeid: 1, insize: 55, pid: 606
+LOOKUP /large_file.txt
+getattr[NULL] /large_file.txt
+   unique: 136, error: -2 (No such file or directory), outsize: 16
+unique: 138, opcode: CREATE (35), nodeid: 1, insize: 71, pid: 606
+create flags: 0x8241 /large_file.txt 0100644 umask=0022
+   create[0] flags: 0x8241 /large_file.txt
+getattr[0] /large_file.txt
+   NODEID: 8
+   unique: 138, success, outsize: 160
+unique: 140, opcode: WRITE (16), nodeid: 8, insize: 1104, pid: 606
+write[0] 1024 bytes to 0 flags: 0x8001
+   write[0] 1024 bytes to 0
+   unique: 140, success, outsize: 24
+unique: 142, opcode: WRITE (16), nodeid: 8, insize: 1104, pid: 606
+write[0] 1024 bytes to 1024 flags: 0x8001
+   write[0] 1024 bytes to 1024
+   unique: 142, success, outsize: 24
+unique: 144, opcode: WRITE (16), nodeid: 8, insize: 1104, pid: 606
+write[0] 1024 bytes to 2048 flags: 0x8001
+   write[0] 1024 bytes to 2048
+   unique: 144, success, outsize: 24
+unique: 146, opcode: WRITE (16), nodeid: 8, insize: 1104, pid: 606
+write[0] 1024 bytes to 3072 flags: 0x8001
+   write[0] 1024 bytes to 3072
+   unique: 146, success, outsize: 24
+unique: 148, opcode: WRITE (16), nodeid: 8, insize: 985, pid: 606
+write[0] 905 bytes to 4096 flags: 0x8001
+   write[0] 905 bytes to 4096
+   unique: 148, success, outsize: 24
+unique: 150, opcode: RELEASE (18), nodeid: 8, insize: 64, pid: 0
+   unique: 150, success, outsize: 16
+unique: 152, opcode: OPEN (14), nodeid: 8, insize: 48, pid: 660
+open flags: 0x8000 /large_file.txt
+   open[0] flags: 0x8000 /large_file.txt
+   unique: 152, success, outsize: 32
+unique: 154, opcode: GETATTR (3), nodeid: 8, insize: 56, pid: 660
+getattr[NULL] /large_file.txt
+   unique: 154, success, outsize: 120
+unique: 156, opcode: READ (15), nodeid: 8, insize: 80, pid: 660
+read[0] 8192 bytes from 0 flags: 0x8000
+   read[0] 5001 bytes from 0
+   unique: 156, success, outsize: 5017
+unique: 158, opcode: RELEASE (18), nodeid: 8, insize: 64, pid: 0
+   unique: 158, success, outsize: 16
+g filesystem...
+
+
+[*] Shutting down SecFS...
+[✓] Cleanup complete.
